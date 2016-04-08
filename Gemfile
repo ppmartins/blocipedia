@@ -11,6 +11,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+  gem "letter_opener"
 end
 
 group :development, :test do
@@ -30,3 +31,4 @@ gem 'turbolinks'
 gem 'bootstrap'
 gem 'figaro'
 gem 'pry'
+gem 'devise'
