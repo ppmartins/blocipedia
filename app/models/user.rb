@@ -13,4 +13,6 @@ class User < ActiveRecord::Base
             presence: true,
             uniqueness: { case_sensitive: false },
             format: { with: EMAIL_REGEX }
+
+  has_many :wikis
 end
