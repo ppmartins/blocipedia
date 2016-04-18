@@ -85,15 +85,12 @@ RSpec.describe WikisController, type: :controller do
     it "updates wiki with expected attributes" do
       new_title = "New Wiki Title 2"
       new_body = "New Wiki Body 2"
-      new_private = true
 
-      put :update, id: wiki.id, wiki: {title: new_title, body: new_body, private: new_private}
+      put :update, id: wiki, wiki: {title: new_title, body: new_body}
 
       update_wiki = assigns(:wiki)
-      expect(update_wiki.id).to eq wiki.id
       expect(update_wiki.title).to eq new_title
       expect(update_wiki.body).to eq new_body
-      expect(update_wiki.private).to eq new_private
     end
 
     it "redirects to the updated wiki" do
