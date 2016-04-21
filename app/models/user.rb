@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
             format: { with: EMAIL_REGEX }
 
   has_many :wikis
+
+  after_initialize { self.role ||= :member }
+
+  enum role: [:member, :admin]
 end
