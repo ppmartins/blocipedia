@@ -1,4 +1,4 @@
-class UserPolicy
+class WikiPolicy
   attr_reader :user, :wiki
 
   def initialize(user, wiki)

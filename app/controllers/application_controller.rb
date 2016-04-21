@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = "Access denied"
-    redirect_to wiki_path(wiki)
+    redirect_to root_path
   end
 end
