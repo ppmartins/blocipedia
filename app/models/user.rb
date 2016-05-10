@@ -18,5 +18,5 @@ class User < ActiveRecord::Base
 
   after_initialize { self.role ||= :member }
 
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :premium]
 end
