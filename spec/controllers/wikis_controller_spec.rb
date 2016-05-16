@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe WikisController, type: :controller do
   let(:user) { User.create!(email: "user@blocipedia.com", password: "password") }
   let(:wiki) { Wiki.create!(title: "New Wiki Title", body: "New Wiki Body", private: false, user: user) }
+  let(:my_private_wiki) { create(:wiki, private: true) }
 
 
   describe "GET new" do
@@ -38,7 +39,6 @@ RSpec.describe WikisController, type: :controller do
       expect(response).to redirect_to Wiki.last
     end
   end
-
 
   describe "GET show" do
     it "returns http success" do
