@@ -19,7 +19,8 @@ users = User.all
   Wiki.create!(
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
-    user: users.sample
+    user: users.sample,
+    private: false
   )
 end
 wikis = Wiki.all

@@ -1,4 +1,11 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
-  scope :visible_to, -> (user) { user ? all : where(private: false) }
+
+  def self.visible_to(user)
+    if user.admin? || user.premium?
+      all
+    else
+      where(private: false)
+    end
+  end
 end
