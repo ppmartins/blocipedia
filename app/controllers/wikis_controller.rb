@@ -15,7 +15,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = params[:wiki][:boolean]
+    @wiki.private = params[:wiki][:private]
     @wiki.user = current_user
 
     if @wiki.save
@@ -35,7 +35,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = params[:wiki][:boolean]
+    @wiki.private = params[:wiki][:private]
 
     authorize @wiki
     if @wiki.save

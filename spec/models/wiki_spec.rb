@@ -20,9 +20,13 @@ RSpec.describe Wiki, type: :model do
     end
 
     describe "visible_to(user)" do
-      it "returns only public wikis if user is nil" do
-        expect(Wiki.visible_to(nil)).to eq([@public_wiki])
+      it "returns public wikis to any visitor" do
+        public_wikis = Wiki.visible_to(nil).first
+        expect(public_wikis).to eq( @public_wiki )
       end
     end
   end
 end
+# My test should probably be a bit different.
+# Wiki.visible_to -> member user and guest should be able to see @public_wiki
+# How to write that test?
