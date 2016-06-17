@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-10.times do
+2.times do
   User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password
@@ -15,11 +15,12 @@ require 'faker'
 end
 users = User.all
 
-100.times do
+5.times do
   Wiki.create!(
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
-    user: users.sample
+    user: users.sample,
+    private: false
   )
 end
 wikis = Wiki.all

@@ -16,7 +16,7 @@ class ChargesController < ApplicationController
     )
 
     flash[:notice] = "Thank you, #{current_user.email}! It's great to have you on board."
-    redirect_to user_path(current_user) # or wherever
+    redirect_to wikis_path(current_user) # or wherever
 
     # upgrade user role to premium
     current_user.premium!
