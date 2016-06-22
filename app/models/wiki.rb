@@ -1,7 +1,6 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
-  has_many :collaborators
-  has_many :users, through: :showings
+  has_many :users, through: :collaborators
 
   def self.visible_to(user)
     if user.admin? || user.premium?
@@ -11,7 +10,7 @@ class Wiki < ActiveRecord::Base
     end
   end
 
-  delegate :users, to: :collaborators
+  delegate :collaborators, to: :users
 
   def collaborators
     Collaborator.where(wiki_id: id)

@@ -14,13 +14,12 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false },
             format: { with: EMAIL_REGEX }
 
-  has_many :wikis, through: :collaborators
+  has_many :wikis
   has_many :collaborators
 
   after_initialize { self.role ||= :member }
 
   enum role: [:member, :admin, :premium]
-
 
   delegate :wikis, to: :collaborators
 
