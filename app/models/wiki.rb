@@ -10,7 +10,9 @@ class Wiki < ActiveRecord::Base
     end
   end
 
-  delegate :collaborators, to: :users
+  def public?
+    self.private == false
+  end
 
   def collaborators
     Collaborator.where(wiki_id: id)

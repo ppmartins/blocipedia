@@ -10,7 +10,9 @@
 
     <% if current_user.admin? || current_user.premium? %>
       <div class="form-group">
-        Collaborator: <%= f.collection_select :user_id, User.order(:email),:id,:email, include_blank: true %>
+
+        Collaborator: <%= f.collection_select :user_id, @collaborators, :id, :email, include_blank: true, selected: @selected_collaborator %>
+        <!-- Collaborator: <%= f.collection_select :user_id, User.order(:email),:id,:email, include_blank: true %> -->
       </div>
 
       <div class="form-group">

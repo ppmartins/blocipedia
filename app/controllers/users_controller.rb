@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @user.role = 'member'
       if @user.save
         flash[:notice] = "Account downgraded successfully."
+        user.wikis.each do |wiki|
+          wiki.private = false
+          wiki.save
+        end
         redirect_to wikis_path
       else
         flash.now[:alert] = "Account failed to downgrade. Please try again."

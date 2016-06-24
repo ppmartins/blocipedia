@@ -2,6 +2,8 @@ class Collaborator < ActiveRecord::Base
     belongs_to :user
     belongs_to :wiki
 
+    delegate :email, to: :user, allow_nil: false
+
 #  def self.users
 #    User.where( id: pluck(:user_id) )
 #  end
